@@ -1,10 +1,10 @@
 Feature: SellerProfile_Skills
 As a Seller
-I want the feature to add my Profile Details
+I want to add skills in my Profile Details
 So that
-The people seeking for some skills can look into my details.
+The people looking my profile can see what skills i know.
 
-	//profile language add
+#	profile skills add
 	@sellerprofiletest
 	Scenario: Add Profile skills with data
 		Given I logged into Trade Skills portal successfully
@@ -41,7 +41,7 @@ The people seeking for some skills can look into my details.
 		Then Skills should be saved successfully
 		
 		
-#	profile language edit
+#	profile skills edit
 	
 	@sellerprofiletest
 	Scenario: Edit Profile Skills with data
@@ -75,10 +75,10 @@ The people seeking for some skills can look into my details.
 		Then Skills should be edited successfully
 		
 		
-#	profile language delete
+#	profile skills delete
 		
 	@sellerprofiletest
-	Scenario: Add Profile Skills delete
+	Scenario: Profile Skills delete
 		Given I logged into Trade Skills portal successfully
 		And I selected the skill
 		When I click on delete icon

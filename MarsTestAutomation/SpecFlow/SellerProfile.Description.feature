@@ -1,9 +1,10 @@
 Feature: SellerProfile_Description
 As a Seller
-I want the feature to add my Profile Details
+I want to add Description in my Profile Details
 So that
-The people seeking for some skills can look into my details.
+The people looking my profile can know more about me.
 
+# profile Description
     @sellerprofiletest
     Scenario: Add Profile Description with data 
         Given I logged into Trade Skills portal successfully

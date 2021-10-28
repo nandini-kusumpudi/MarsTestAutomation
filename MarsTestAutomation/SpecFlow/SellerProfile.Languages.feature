@@ -1,10 +1,10 @@
 Feature: SellerProfile_Languages
 As a Seller
-I want the Languages to add my Profile Details
+I want to add Languages in my Profile Details
 So that
-The people seeking for language can look into my details.
+The people looking my profile can see what language i know.
 
-	//profile language add
+#	profile language add
 	@sellerprofiletest
 	Scenario: Add Profile Languages with data
 		Given I logged into Trade Skills portal successfully
@@ -78,7 +78,7 @@ The people seeking for language can look into my details.
 #	profile language delete
 		
 	@sellerprofiletest
-	Scenario: Add Profile Languages delete
+	Scenario: Profile Languages delete
 		Given I logged into Trade Skills portal successfully
 		And I selected the skill
 		When I click on delete icon
