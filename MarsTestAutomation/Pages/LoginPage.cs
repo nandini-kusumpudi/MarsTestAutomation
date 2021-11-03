@@ -1,14 +1,15 @@
 using OpenQA.Selenium;
 using System;
+using MarsTestAutomation.Utilities;
 
 
 namespace MarsTestAutomation.Pages
 {
     public class LoginPage
     {
-        public void LoginAction(IWebDriver driver)
+        public void LoginAction(IWebDriver driver)  
         {
-            driver.Navigate().GoToUrl("https://64a7-2a02-8084-2164-3d00-61ef-548a-9274-820c.ngrok.io/");
+            driver.Navigate().GoToUrl("http://localhost:5000/");
             driver.Manage().Window.Maximize();
 
             IWebElement signInButton = driver.FindElement(By.XPath("//*[@id='home']/div/div/div[1]/div/a"));
@@ -25,6 +26,8 @@ namespace MarsTestAutomation.Pages
             // identify login button and click
             IWebElement loginButton = driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div[4]/button"));
             loginButton.Click();
+            
+           
         }
     }
 }

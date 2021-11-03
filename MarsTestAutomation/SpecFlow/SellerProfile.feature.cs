@@ -35,9 +35,9 @@ namespace MarsTestAutomation.SpecFlow
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "SpecFlow", "SellerProfile", "As a Seller\nI want to add Profile Name, Availability, Hours, Target in my Profile" +
-                    " Details\nSo that\nThe people looking my profile can see what is the Name, Availab" +
-                    "ility to work, Hours of woking, cost of the Earn Target.", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "SpecFlow", "SellerProfile", "As a Seller\r\nI want to add Profile Name, Availability, Hours, Target in my Profil" +
+                    "e Details\r\nSo that\r\nThe people looking my profile can see what is the Name, Avai" +
+                    "lability to work, Hours of woking, cost of the Earn Target.", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         

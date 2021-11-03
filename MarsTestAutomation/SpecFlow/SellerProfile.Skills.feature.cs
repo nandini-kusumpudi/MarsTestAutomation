@@ -35,8 +35,8 @@ namespace MarsTestAutomation.SpecFlow
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "SpecFlow", "SellerProfile_Skills", "As a Seller\nI want to add skills in my Profile Details\nSo that\nThe people looking" +
-                    " my profile can see what skills i know.", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "SpecFlow", "SellerProfile_Skills", "As a Seller\r\nI want to add skills in my Profile Details\r\nSo that\r\nThe people look" +
+                    "ing my profile can see what skills i know.", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         

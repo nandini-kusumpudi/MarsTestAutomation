@@ -1,4 +1,6 @@
 using MarsTestAutomation.Pages;
+using MarsTestAutomation.Utilities;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
@@ -6,58 +8,53 @@ using TechTalk.SpecFlow;
 namespace MarsTestAutomation
 {
     [Binding]
-    public class SPDescriptionSteps
+    public class SPDescriptionSteps : CommonDriver
     {
         [Given(@"I logged into Trade Skills portal successfully")]
         public void GivenILoggedIntoTradeSkillsPortalSuccessfully()
         {
-            IWebDriver driver = new ChromeDriver();
+            driver = new ChromeDriver();
             
             LoginPage loginObj = new LoginPage();
             loginObj.LoginAction(driver);
         }
 
-
         [Given(@"I click on pen icon")]
         public void GivenIClickOnPenIcon()
         {
-            ScenarioContext.StepIsPending();
+            ProfilePage descriptionObj = new ProfilePage();
+            descriptionObj.ClickOnDescriptionPenIcon(driver);
         }
 
-        [When(@"I Add descricption and click Save button")]
-        public void WhenIAddDescricptionAndClickSaveButton()
+        [When(@"I Add '(.*)' and click Save button")]
+        public void WhenIAddAndClickSaveButton(string Description)
         {
-            ScenarioContext.StepIsPending();
+            ProfilePage descriptionObj = new ProfilePage();
+             
+            descriptionObj.AddDescription(driver, Description);
         }
 
-        [Then(@"Description should be saved successfully")]
-        public void ThenDescriptionShouldBeSavedSuccessfully()
+        [Then(@"'(.*)' should be saved successfully")]
+        public void ThenShouldBeSavedSuccessfully(string Description)
         {
-            ScenarioContext.StepIsPending();
+            ProfilePage descriptionObj = new ProfilePage();
+            string newDescription = descriptionObj.GetDescription(driver);
+            Assert.That(newDescription == Description, "Description is not added");
         }
 
         [When(@"I click Save button without data")]
         public void WhenIClickSaveButtonWithoutData()
         {
-            ScenarioContext.StepIsPending();
+            ProfilePage descriptionObj = new ProfilePage();
+            descriptionObj.AddDescription(driver,"");
         }
 
-        [Then(@"A popup should be shown with this message \(Please a Description is required\)")]
-        public void ThenAPopupShouldBeShownWithThisMessagePleaseADescriptionIsRequired()
+        [Then(@"A popup should be shown with '(.*)'")]
+        public void ThenAPopupShouldBeShownWith(string message)
         {
-            ScenarioContext.StepIsPending();
-        }
-
-        [When(@"I Edit descricption and click Save button")]
-        public void WhenIEditDescricptionAndClickSaveButton()
-        {
-            ScenarioContext.StepIsPending();
-        }
-
-        [Then(@"Description should be Edited successfully")]
-        public void ThenDescriptionShouldBeEditedSuccessfully()
-        {
-            ScenarioContext.StepIsPending();
+            ProfilePage descriptionObj = new ProfilePage();
+            string popUpMessage = descriptionObj.GetPopUpMessage(driver);
+            Assert.AreEqual(popUpMessage, message );
         }
     }
 }
