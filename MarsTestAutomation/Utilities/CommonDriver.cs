@@ -18,9 +18,8 @@ namespace MarsTestAutomation.Utilities
             // login page object initialization and definition
             LoginPage loginPageObj = new LoginPage();
             loginPageObj.LoginAction(driver);
-
-            
         }
+        
         [OneTimeTearDown]
         public void CloseTestRun()
         {
