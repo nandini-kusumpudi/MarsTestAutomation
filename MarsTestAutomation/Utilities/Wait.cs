@@ -6,22 +6,25 @@ namespace MarsTestAutomation.Utilities
 {
     public class Wait
     {
-        public static void WaitForElementToBeClickable(IWebDriver driver, string locatorType, string locatorValue, int seconds)
+        public static void WaitForElementToBeClickable(IWebDriver driver, string locatorType, string locatorValue,
+            int seconds)
         {
             var wait = new WebDriverWait(driver, new TimeSpan(0, 0, seconds));
-            if (locatorType == "Xpath")
+            switch (locatorType)
             {
-                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath(locatorValue)));
+                case "Xpath":
+                    wait.Until(
+                        SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath(locatorValue)));
+                    break;
+                case "Id":
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id(locatorValue)));
+                    break;
+                case "CssSelector":
+                    wait.Until(
+                        SeleniumExtras.WaitHelpers.ExpectedConditions
+                            .ElementToBeClickable(By.CssSelector(locatorValue)));
+                    break;
             }
-            if (locatorType == "Id")
-            {
-                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id(locatorValue)));
-            }
-            if (locatorType == "CssSelector")
-            {
-                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.CssSelector(locatorValue)));
-            } 
         }
     }
-    
 }

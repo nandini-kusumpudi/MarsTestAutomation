@@ -77,11 +77,18 @@ namespace MarsTestAutomation.SpecFlow
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add Profile skills with data")]
         [NUnit.Framework.CategoryAttribute("sellerprofiletest")]
-        public virtual void AddProfileSkillsWithData()
+        [NUnit.Framework.TestCaseAttribute("Testing has been added to your skills", null)]
+        public virtual void AddProfileSkillsWithData(string message, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
+            string[] @__tags = new string[] {
                     "sellerprofiletest"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Message", message);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Profile skills with data", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 9
  this.ScenarioInitialize(scenarioInfo);
@@ -107,13 +114,16 @@ namespace MarsTestAutomation.SpecFlow
   testRunner.Given("I logged into Trade Skills portal successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 11
-  testRunner.And("I click on Add New button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("I click on skills tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 12
-  testRunner.When("I Enter the data in Skills and Chose Skill level and click on Add button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+  testRunner.And("I click on Add New button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 13
-  testRunner.Then("Laguages should be Added and saved successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.When("I Enter the data in Skills and Chose Skill level and click on Add button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 14
+  testRunner.Then(string.Format("A popup \'{0}\' should be shown", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -128,7 +138,7 @@ namespace MarsTestAutomation.SpecFlow
                     "sellerprofiletest"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Profile Skills without data", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 16
+#line 21
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -148,16 +158,16 @@ namespace MarsTestAutomation.SpecFlow
             else
             {
                 this.ScenarioStart();
-#line 17
+#line 22
   testRunner.Given("I logged into Trade Skills portal successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 18
+#line 23
   testRunner.And("I click on Add New Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 19
+#line 24
   testRunner.When("I click on Add button  without data in Skills and Skills level field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 20
+#line 25
   testRunner.Then("a popup should be shown with this message (Please entry Skills and Experience lev" +
                         "el)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -174,7 +184,7 @@ namespace MarsTestAutomation.SpecFlow
                     "sellerprofiletest"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Profile Skills with only Add skills", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 23
+#line 28
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -194,16 +204,16 @@ namespace MarsTestAutomation.SpecFlow
             else
             {
                 this.ScenarioStart();
-#line 24
+#line 29
   testRunner.Given("I logged into Trade Skills portal successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 25
+#line 30
   testRunner.And("I click on Add New button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 26
+#line 31
   testRunner.When("I Enter data in Skills and click on Add button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 27
+#line 32
   testRunner.Then("a popup should be shown with this message (Please entry Skills and Experience lev" +
                         "el)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -220,7 +230,7 @@ namespace MarsTestAutomation.SpecFlow
                     "sellerprofiletest"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Profile Skills with only Skill level", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 30
+#line 35
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -240,16 +250,16 @@ namespace MarsTestAutomation.SpecFlow
             else
             {
                 this.ScenarioStart();
-#line 31
+#line 36
   testRunner.Given("I logged into Trade Skills portal successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 32
+#line 37
   testRunner.And("I click on Add New button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 33
+#line 38
   testRunner.When("I Select Skill level and click on Add button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 34
+#line 39
   testRunner.Then("a popup should be shown with this message (Please entry Skills and Experience lev" +
                         "el)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -266,7 +276,7 @@ namespace MarsTestAutomation.SpecFlow
                     "sellerprofiletest"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Profile Skills with Specal characters", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 37
+#line 42
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -286,17 +296,17 @@ namespace MarsTestAutomation.SpecFlow
             else
             {
                 this.ScenarioStart();
-#line 38
+#line 43
   testRunner.Given("I logged into Trade Skills portalsuccessfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 39
+#line 44
   testRunner.And("I click on Add New button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 40
+#line 45
   testRunner.When("I Enter Specal characters in Skills and select Skill level and click on Add butto" +
                         "n", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 41
+#line 46
   testRunner.Then("Skills should be saved successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -312,7 +322,7 @@ namespace MarsTestAutomation.SpecFlow
                     "sellerprofiletest"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit Profile Skills with data", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 47
+#line 52
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -332,16 +342,16 @@ namespace MarsTestAutomation.SpecFlow
             else
             {
                 this.ScenarioStart();
-#line 48
+#line 53
   testRunner.Given("I logged into Trade Skills portal successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 49
+#line 54
   testRunner.And("I click on pen icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 50
+#line 55
   testRunner.When("I Edit the data in Skills and skill level and click on update button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 51
+#line 56
   testRunner.Then("Skills should be edited successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -355,7 +365,7 @@ namespace MarsTestAutomation.SpecFlow
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit Profile Skills without data", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 53
+#line 58
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -375,16 +385,16 @@ namespace MarsTestAutomation.SpecFlow
             else
             {
                 this.ScenarioStart();
-#line 54
+#line 59
   testRunner.Given("I logged into Trade Skills portal successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 55
+#line 60
   testRunner.And("I click on pen icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 56
+#line 61
   testRunner.When("I click on update button without data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 57
+#line 62
   testRunner.Then("Skills should be showed a popup with this message (Please entry Skills and Experi" +
                         "ence level)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -399,7 +409,7 @@ namespace MarsTestAutomation.SpecFlow
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit Profile Skills without Edited", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 59
+#line 64
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -419,16 +429,16 @@ namespace MarsTestAutomation.SpecFlow
             else
             {
                 this.ScenarioStart();
-#line 60
+#line 65
   testRunner.Given("I logged into Trade Skills portal successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 61
+#line 66
   testRunner.And("I click on pen icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 62
+#line 67
   testRunner.When("I click on update button without edited", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 63
+#line 68
   testRunner.Then("Skills should be showed a popup with this message (This Skills is already added t" +
                         "o your Skills list)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -443,7 +453,7 @@ namespace MarsTestAutomation.SpecFlow
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit Profile Skills with only language", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 65
+#line 70
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -463,16 +473,16 @@ namespace MarsTestAutomation.SpecFlow
             else
             {
                 this.ScenarioStart();
-#line 66
+#line 71
   testRunner.Given("I logged into Trade Skills portal successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 67
+#line 72
   testRunner.And("I click on pen icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 68
+#line 73
   testRunner.When("I Edited the Skills click on update button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 69
+#line 74
   testRunner.Then("Laguages should be edited successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -486,7 +496,7 @@ namespace MarsTestAutomation.SpecFlow
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit Profile Skills with only language level", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 71
+#line 76
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -506,16 +516,16 @@ namespace MarsTestAutomation.SpecFlow
             else
             {
                 this.ScenarioStart();
-#line 72
+#line 77
   testRunner.Given("I logged into Trade Skills portal successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 73
+#line 78
   testRunner.And("I click on pen icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 74
+#line 79
   testRunner.When("I edited Skills level and click on update button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 75
+#line 80
   testRunner.Then("Skills should be edited successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -531,7 +541,7 @@ namespace MarsTestAutomation.SpecFlow
                     "sellerprofiletest"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Profile Skills delete", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 81
+#line 86
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -551,16 +561,16 @@ namespace MarsTestAutomation.SpecFlow
             else
             {
                 this.ScenarioStart();
-#line 82
+#line 87
   testRunner.Given("I logged into Trade Skills portal successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 83
+#line 88
   testRunner.And("I selected the skill", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 84
+#line 89
   testRunner.When("I click on delete icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 85
+#line 90
   testRunner.Then("Skills should be Deleted successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

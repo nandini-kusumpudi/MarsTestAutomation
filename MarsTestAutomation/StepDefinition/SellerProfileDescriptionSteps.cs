@@ -5,25 +5,24 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
 
-namespace MarsTestAutomation
+namespace MarsTestAutomation.StepDefinition
 {
     [Binding]
-    public class SPDescriptionSteps : CommonDriver
+    public class SpDescriptionSteps : CommonDriver
     {
-        
         private ProfilePage descriptionObj;
 
-        [OneTimeSetUp]
+        [BeforeScenario]
         public void Initialization()
         {
             descriptionObj = new ProfilePage();
         }
-        
+
         [Given(@"I logged into Trade Skills portal successfully")]
         public void GivenILoggedIntoTradeSkillsPortalSuccessfully()
         {
             driver = new ChromeDriver();
-            
+
             LoginPage loginObj = new LoginPage();
             loginObj.LoginAction(driver);
         }
@@ -35,29 +34,29 @@ namespace MarsTestAutomation
         }
 
         [When(@"I Add '(.*)' and click Save button")]
-        public void WhenIAddAndClickSaveButton(string Description)
+        public void WhenIAddAndClickSaveButton(string description)
         {
-            descriptionObj.AddDescription(driver, Description);
+            descriptionObj.AddDescription(driver, description);
         }
 
         [Then(@"'(.*)' should be saved successfully")]
-        public void ThenShouldBeSavedSuccessfully(string Description)
+        public void ThenShouldBeSavedSuccessfully(string description)
         {
             string newDescription = descriptionObj.GetDescription(driver);
-            Assert.That(newDescription == Description, "Description is not added");
+            Assert.AreEqual(newDescription, description);
         }
 
         [When(@"I click Save button without data")]
         public void WhenIClickSaveButtonWithoutData()
         {
-            descriptionObj.AddDescription(driver,"");
+            descriptionObj.AddDescription(driver, "");
         }
 
         [Then(@"A popup should be shown with '(.*)'")]
         public void ThenAPopupShouldBeShownWith(string message)
         {
             string popUpMessage = descriptionObj.GetPopUpMessage(driver);
-            Assert.AreEqual(popUpMessage, message );
+            Assert.AreEqual(popUpMessage, message);
         }
     }
 }
