@@ -43,5 +43,25 @@ namespace MarsTestAutomation.StepDefinition
             string skillsPopUpMessage = skillObj.GetSkillsAddPopUpMessage(driver);
             Assert.AreEqual(message, skillsPopUpMessage);
         }
+
+        [Given(@"I click on Skill Edit pen icon")]
+        public void GivenIClickOnSkillEditPenIcon()
+        {
+            skillObj.ClickEditPenIcon(driver);
+        }
+
+        [When(@"I Edit the data in '(.*)' and '(.*)'  and click on update button")]
+        public void WhenIEditTheDataInAndAndClickOnUpdateButton(string skillName, string skillLevel)
+        {
+            skillObj.UpdateSkillsData(driver, skillName, skillLevel);
+        }
+
+
+        [When(@"I click on delete icon")]
+        public void WhenIClickOnDeleteIcon()
+        {
+            skillObj.DeleteSkill(driver);
+        }
+
     }
 }

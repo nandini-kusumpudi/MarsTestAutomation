@@ -77,8 +77,8 @@ namespace MarsTestAutomation.SpecFlow
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add Profile Description with data")]
         [NUnit.Framework.CategoryAttribute("sellerprofiletest")]
-        [NUnit.Framework.TestCaseAttribute("hello, I am a software tester. I working in mvp studio as a inter.", null)]
-        public virtual void AddProfileDescriptionWithData(string description, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("hello, I added description", "Description has been saved successfully", null)]
+        public virtual void AddProfileDescriptionWithData(string description, string message, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "sellerprofiletest"};
@@ -89,6 +89,7 @@ namespace MarsTestAutomation.SpecFlow
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Description", description);
+            argumentsOfScenario.Add("Message", message);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Profile Description with data", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 9
     this.ScenarioInitialize(scenarioInfo);
@@ -120,7 +121,7 @@ namespace MarsTestAutomation.SpecFlow
         testRunner.When(string.Format("I Add \'{0}\' and click Save button", description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 13
-        testRunner.Then(string.Format("\'{0}\' should be saved successfully", description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then(string.Format("A popup should be shown with \'{0}\'", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -181,11 +182,19 @@ namespace MarsTestAutomation.SpecFlow
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Edit Profile Description")]
         [NUnit.Framework.CategoryAttribute("sellerprofiletest")]
-        public virtual void EditProfileDescription()
+        [NUnit.Framework.TestCaseAttribute("hello, I edited description", "Description has been saved successfully", null)]
+        public virtual void EditProfileDescription(string description, string message, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
+            string[] @__tags = new string[] {
                     "sellerprofiletest"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Description", description);
+            argumentsOfScenario.Add("Message", message);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit Profile Description", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 31
     this.ScenarioInitialize(scenarioInfo);
@@ -214,10 +223,10 @@ namespace MarsTestAutomation.SpecFlow
         testRunner.And("I click on pen icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 34
-        testRunner.When("I Edit descricption and click Save button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.When(string.Format("I edit \'{0}\' and click Save button", description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 35
-        testRunner.Then("Description should be Edited successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then(string.Format("A popup should be shown with \'{0}\'", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

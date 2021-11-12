@@ -17,7 +17,7 @@ namespace MarsTestAutomation.Pages
             
             // indetify the username textbox enter valid username
             IWebElement emailAddressTextbox = driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div[1]/input"));
-            emailAddressTextbox.SendKeys("nandini49@outlook.com");
+            emailAddressTextbox.SendKeys("nandini.kusumpudi49@gmail.com");
 
             // identify password textbox enter valid password
             IWebElement passwordTextbox = driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div[2]/input"));

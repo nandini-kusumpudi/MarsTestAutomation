@@ -10,11 +10,11 @@ The people looking my profile can know more about me.
         Given I logged into Trade Skills portal successfully
         And I click on pen icon
         When I Add '<Description>' and click Save button
-        Then '<Description>' should be saved successfully
+        Then A popup should be shown with '<Message>' 
        
          Examples: 
-         | Description                                                     |
-         | hello, I am a software tester. I working in mvp studio as a inter. |
+         | Description                | Message |
+         | hello, I added description | Description has been saved successfully |
          
     @sellerprofiletest
     Scenario Outline: Add Profile Description without data
@@ -31,9 +31,12 @@ The people looking my profile can know more about me.
     Scenario: Edit Profile Description
         Given I logged into Trade Skills portal successfully
         And I click on pen icon
-        When I Edit descricption and click Save button
-        Then Description should be Edited successfully
+        When  I edit '<Description>' and click Save button
+        Then A popup should be shown with '<Message>' 
         
-       
+        Examples: 
+         | Description                 | Message |
+         | hello, I edited description | Description has been saved successfully |
+
         
         

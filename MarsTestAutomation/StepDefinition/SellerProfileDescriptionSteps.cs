@@ -43,7 +43,7 @@ namespace MarsTestAutomation.StepDefinition
         public void ThenShouldBeSavedSuccessfully(string description)
         {
             string newDescription = descriptionObj.GetDescription(driver);
-            Assert.AreEqual(newDescription, description);
+            Assert.AreEqual(description, newDescription);
         }
 
         [When(@"I click Save button without data")]
@@ -58,5 +58,12 @@ namespace MarsTestAutomation.StepDefinition
             string popUpMessage = descriptionObj.GetPopUpMessage(driver);
             Assert.AreEqual(popUpMessage, message);
         }
+
+        [When(@"I edit '(.*)' and click Save button")]
+        public void WhenIEditAndClickSaveButton(string description)
+        {
+            descriptionObj.AddDescription(driver, description);
+        }
+
     }
 }

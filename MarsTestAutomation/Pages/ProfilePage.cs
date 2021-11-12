@@ -1,13 +1,17 @@
 using System;
+using System.Threading;
 using MarsTestAutomation.Utilities;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace MarsTestAutomation.Pages
 {
     public class ProfilePage
     {
         private IWebElement descriptionField;
-        private IWebElement skillsField;
+        private IWebElement skillNameField;
+        private IWebElement skillLevelDropdownField;
+        private IWebElement skillLevelDropdownOption;
         private IWebElement sellerProfileField;
 
         public void ClickOnDescriptionPenIcon(IWebDriver driver)
@@ -42,12 +46,15 @@ namespace MarsTestAutomation.Pages
 
         public String GetPopUpMessage(IWebDriver driver)
         {
-            Wait.WaitForElementToBeClickable(driver, "Xpath", "/html/body/div[1]/div", 10);
-            IWebElement popup = driver.FindElement(By.XPath("/html/body/div[1]/div"));
+
+            Wait.WaitForElementToBeClickable(driver, "CssSelector", "div[class='ns-box-inner']", 15);
+            IWebElement popup = driver.FindElement(By.CssSelector("div[class='ns-box-inner']"));
             return popup.Text;
         }
 
 // skill feild
+
+        //Add skill
         public void ClickOnSkillsTab(IWebDriver driver)
         {
             Wait.WaitForElementToBeClickable(driver, "Xpath",
@@ -68,16 +75,17 @@ namespace MarsTestAutomation.Pages
 
         public void enterDataInSkillsFeild(IWebDriver driver)
         {
-            IWebElement addSkill = driver.FindElement(By.XPath(
+            skillNameField = driver.FindElement(By.XPath(
                 "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/div/div[1]/input"));
-            addSkill.SendKeys("Testing");
+            skillNameField.SendKeys("Testing");
 
-            IWebElement clickChooseSkillLevelDropDown = driver.FindElement(By.XPath(
+           skillLevelDropdownField = driver.FindElement(By.XPath(
                 "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/div/div[2]/select"));
-            clickChooseSkillLevelDropDown.Click();
-            IWebElement selectChooseSkillLevel = driver.FindElement(By.XPath(
+            skillLevelDropdownField.Click();
+
+           skillLevelDropdownOption = driver.FindElement(By.XPath(
                 "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/div/div[2]/select/option[3]"));
-            selectChooseSkillLevel.Click();
+            skillLevelDropdownOption.Click();
 
             IWebElement clickAddbutton = driver.FindElement(By.XPath(
                 "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/div/span/input[1]"));
@@ -89,6 +97,44 @@ namespace MarsTestAutomation.Pages
             Wait.WaitForElementToBeClickable(driver, "CssSelector", "div[class='ns-box-inner']", 15);
             IWebElement popup = driver.FindElement(By.CssSelector("div[class='ns-box-inner']"));
             return popup.Text;
+        }
+
+        // edit skill
+        public void ClickEditPenIcon(IWebDriver driver)
+        {
+            ClickOnSkillsTab(driver);
+            Thread.Sleep(5000); // WaitForElementToBeClickable method is not working here so used sleep method
+
+            IWebElement editPenIcon = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[3]/span[1]/i"));
+            editPenIcon.Click();
+        }
+
+        public void UpdateSkillsData(IWebDriver driver, string skillName, string skillLevel)
+        {
+            skillNameField = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td/div/div[1]/input"));
+            skillNameField.Clear();
+            skillNameField.SendKeys(skillName);
+
+            skillLevelDropdownField = driver.FindElement(By.XPath(
+                  "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td/div/div[2]/select"));
+
+            //create select element object 
+            var selectElement = new SelectElement(skillLevelDropdownField);
+
+            // select by text
+            selectElement.SelectByText(skillLevel);
+
+            IWebElement updateButton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td/div/span/input[1]"));
+            updateButton.Click();
+        }
+
+        // delete skill
+
+        public void DeleteSkill(IWebDriver driver)
+        {
+
+            IWebElement clickOnDeleteIcon = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[3]/span[2]/i"));
+            clickOnDeleteIcon.Click();
         }
 
         // seller profile

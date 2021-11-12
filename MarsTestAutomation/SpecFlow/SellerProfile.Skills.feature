@@ -15,7 +15,7 @@ The people looking my profile can see what skills i know.
         Then A popup '<Message>' should be shown
 
     Examples:
-      | Message                               |
+      | Message                               | 
       | Testing has been added to your skills |
 
     @sellerprofiletest
@@ -41,7 +41,7 @@ The people looking my profile can see what skills i know.
 
     @sellerprofiletest
     Scenario: Add Profile Skills with Specal characters
-        Given I logged into Trade Skills portalsuccessfully
+        Given I logged into Trade Skills portal successfully
         And I click on Add New button
         When I Enter Specal characters in Skills and select Skill level and click on Add button
         Then Skills should be saved successfully
@@ -49,22 +49,28 @@ The people looking my profile can see what skills i know.
 
     #	profile skills edit
 
+
     @sellerprofiletest
     Scenario: Edit Profile Skills with data
         Given I logged into Trade Skills portal successfully
-        And I click on pen icon
-        When I Edit the data in Skills and skill level and click on update button
-        Then Skills should be edited successfully
+        And I click on Skill Edit pen icon
+        When I Edit the data in '<SkillName>' and '<SkillLevel>'  and click on update button
+        Then A popup '<Message>' should be shown
+
+        Examples:
+      | SkillName | SkillLevel | Message|
+      | English   | Expert |English has been updated to your skills|
+        
 
     Scenario: Edit Profile Skills without data
         Given I logged into Trade Skills portal successfully
-        And I click on pen icon
+        And I click on Skill Edit pen icon
         When I click on update button without data
         Then Skills should be showed a popup with this message (Please entry Skills and Experience level)
 
     Scenario: Edit Profile Skills without Edited
         Given I logged into Trade Skills portal successfully
-        And I click on pen icon
+        And I click on Skill Edit pen icon
         When I click on update button without edited
         Then Skills should be showed a popup with this message (This Skills is already added to your Skills list)
 
@@ -86,6 +92,10 @@ The people looking my profile can see what skills i know.
     @sellerprofiletest
     Scenario: Profile Skills delete
         Given I logged into Trade Skills portal successfully
-        And I selected the skill
-        When I click on delete icon
-        Then Skills should be Deleted successfully
+        And   I click on skills tab
+        When  I click on delete icon
+        Then  A popup '<Message>' should be shown
+
+       Examples: 
+        |Message|
+        |English has been deleted|
