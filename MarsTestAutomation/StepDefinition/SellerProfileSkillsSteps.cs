@@ -30,10 +30,10 @@ namespace MarsTestAutomation.StepDefinition
             skillObj.cliclOnAddNewButton(driver);
         }
 
-        [When(@"I Enter the data in Skills and Chose Skill level and click on Add button")]
-        public void WhenIEnterTheDataInSkillsAndChoseSkillLevelAndClickOnAddButton()
+        [When(@"I enter the data in '(.*)' and '(.*)'  and click on Add button")]
+        public void WhenIEnterTheDataInAndAndClickOnAddButton( string skillName, string skillLevel)
         {
-            skillObj.enterDataInSkillsFeild(driver);
+            skillObj.AddSkilldata(driver, skillName, skillLevel);
         }
 
 

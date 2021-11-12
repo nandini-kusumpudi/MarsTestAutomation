@@ -7,6 +7,8 @@ namespace MarsTestAutomation.Pages
 {
     public class LoginPage
     {
+        private string userName = "nandini.kusumpudi49@gmail.com";
+        private string password = "test@123";
         public void LoginAction(IWebDriver driver)  
         {
             driver.Navigate().GoToUrl("http://localhost:5000/");
@@ -17,11 +19,11 @@ namespace MarsTestAutomation.Pages
             
             // indetify the username textbox enter valid username
             IWebElement emailAddressTextbox = driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div[1]/input"));
-            emailAddressTextbox.SendKeys("nandini.kusumpudi49@gmail.com");
+            emailAddressTextbox.SendKeys(userName);
 
             // identify password textbox enter valid password
             IWebElement passwordTextbox = driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div[2]/input"));
-            passwordTextbox.SendKeys("test@123");
+            passwordTextbox.SendKeys(password);
 
             // identify login button and click
             IWebElement loginButton = driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div[4]/button"));

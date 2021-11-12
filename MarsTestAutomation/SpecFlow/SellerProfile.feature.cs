@@ -78,11 +78,19 @@ namespace MarsTestAutomation.SpecFlow
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Edit Profile Name with data")]
         [NUnit.Framework.CategoryAttribute("sellerprofiletest")]
-        public virtual void EditProfileNameWithData()
+        [NUnit.Framework.TestCaseAttribute("nandini", "kusumpudi", null)]
+        public virtual void EditProfileNameWithData(string firstName, string lastName, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
+            string[] @__tags = new string[] {
                     "sellerprofiletest"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("FirstName", firstName);
+            argumentsOfScenario.Add("LastName", lastName);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit Profile Name with data", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 10
     this.ScenarioInitialize(scenarioInfo);
@@ -111,7 +119,7 @@ namespace MarsTestAutomation.SpecFlow
         testRunner.And("I click on name expand icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 13
-        testRunner.When("I enter First Name, Last Name and click on Save button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.When(string.Format("I enter \'{0}\' \'{1}\' and click on Save button", firstName, lastName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 14
         testRunner.Then("Name should be saved successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -129,7 +137,7 @@ namespace MarsTestAutomation.SpecFlow
                     "sellerprofiletest"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit Profile Name without data", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 17
+#line 21
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -149,16 +157,16 @@ namespace MarsTestAutomation.SpecFlow
             else
             {
                 this.ScenarioStart();
-#line 18
+#line 22
         testRunner.Given("I logged into Trade Skills portal successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 19
+#line 23
         testRunner.And("I click on name expand icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 20
+#line 24
         testRunner.When("I click on Save button without entering data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 21
+#line 25
         testRunner.Then("a popup should be shown with this message (First Name, Last Name are reqired)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -174,7 +182,7 @@ namespace MarsTestAutomation.SpecFlow
                     "sellerprofiletest"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit Profile Name with Only First Name", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 24
+#line 28
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -194,16 +202,16 @@ namespace MarsTestAutomation.SpecFlow
             else
             {
                 this.ScenarioStart();
-#line 25
+#line 29
         testRunner.Given("I logged into Trade Skills portal successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 26
+#line 30
         testRunner.And("I click on name expand icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 27
+#line 31
         testRunner.When("I enter First Name and click on Save button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 28
+#line 32
         testRunner.Then("a popup should be shown with this message (First Name, Last Name are reqired)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -219,7 +227,7 @@ namespace MarsTestAutomation.SpecFlow
                     "sellerprofiletest"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit Profile Name with only Last Name", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 31
+#line 35
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -239,16 +247,16 @@ namespace MarsTestAutomation.SpecFlow
             else
             {
                 this.ScenarioStart();
-#line 32
+#line 36
         testRunner.Given("I logged into Trade Skills portal successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 33
+#line 37
         testRunner.And("I click on name expand icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 34
+#line 38
         testRunner.When("I enter Last Name and click on Save button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 35
+#line 39
         testRunner.Then("a popup should be shown with this message (First Name, Last Name are reqired)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -264,7 +272,7 @@ namespace MarsTestAutomation.SpecFlow
                     "sellerprofiletest"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Profile Availability", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 40
+#line 44
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -284,16 +292,16 @@ namespace MarsTestAutomation.SpecFlow
             else
             {
                 this.ScenarioStart();
-#line 41
+#line 45
         testRunner.Given("I logged into Trade Skills portal successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 42
+#line 46
         testRunner.And("I click on Availability pen icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 43
+#line 47
         testRunner.When("I select value from the dorpdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 44
+#line 48
         testRunner.Then("Availability should be saved successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -309,7 +317,7 @@ namespace MarsTestAutomation.SpecFlow
                     "sellerprofiletest"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Profile Hours", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 49
+#line 53
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -329,16 +337,16 @@ namespace MarsTestAutomation.SpecFlow
             else
             {
                 this.ScenarioStart();
-#line 50
+#line 54
         testRunner.Given("I logged into Trade Skills portal successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 51
+#line 55
         testRunner.And("I click on Hours pen icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 52
+#line 56
         testRunner.When("I select value from the dorpdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 53
+#line 57
         testRunner.Then("Hours should be saved successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -354,7 +362,7 @@ namespace MarsTestAutomation.SpecFlow
                     "sellerprofiletest"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Profile Earn Target", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 58
+#line 62
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -374,16 +382,16 @@ namespace MarsTestAutomation.SpecFlow
             else
             {
                 this.ScenarioStart();
-#line 59
+#line 63
         testRunner.Given("I logged into Trade Skills portal successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 60
+#line 64
         testRunner.And("I click on Earn Target pen icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 61
+#line 65
         testRunner.When("I select value from the dorpdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 62
+#line 66
         testRunner.Then("Earn Target should be saved successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

@@ -25,11 +25,14 @@ namespace MarsTestAutomation.StepDefinition
             sellerProfileObj.SelectSellerNameDropDown(driver);
         }
 
-        [When(@"I enter First Name, Last Name and click on Save button")]
-        public void WhenIEnterFirstNameLastNameAndClickOnSaveButton()
+      
+
+        [When(@"I enter '(.*)' '(.*)' and click on Save button")]
+        public void WhenIEnterAndClickOnSaveButton(string firstName, string lastName)
         {
-            sellerProfileObj.EditSellerProfile(driver);
+            sellerProfileObj.EditSellerProfile(driver, firstName, lastName);
         }
+
 
         [Then(@"Name should be saved successfully")]
         public void ThenNameShouldBeSavedSuccessfully()

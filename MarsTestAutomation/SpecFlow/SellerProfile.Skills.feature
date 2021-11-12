@@ -11,12 +11,12 @@ The people looking my profile can see what skills i know.
         Given I logged into Trade Skills portal successfully
         And I click on skills tab
         And I click on Add New button
-        When I Enter the data in Skills and Chose Skill level and click on Add button
+        When I enter the data in '<SkillName>' and '<SkillLevel>'  and click on Add button
         Then A popup '<Message>' should be shown
 
     Examples:
-      | Message                               | 
-      | Testing has been added to your skills |
+     | SkillName | SkillLevel | Message                               |
+     | testing   | Expert     | Testing has been added to your skills |
 
     @sellerprofiletest
     Scenario: Add Profile Skills without data

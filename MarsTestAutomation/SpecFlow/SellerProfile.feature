@@ -10,8 +10,12 @@ The people looking my profile can see what is the Name, Availability to work, Ho
     Scenario: Edit Profile Name with data
         Given I logged into Trade Skills portal successfully
         And I click on name expand icon
-        When I enter First Name, Last Name and click on Save button
+        When I enter '<FirstName>' '<LastName>' and click on Save button
         Then Name should be saved successfully
+
+        Examples: 
+         | FirstName | LastName |
+          | nandini | kusumpudi |
 
     @sellerprofiletest
     Scenario: Edit Profile Name without data

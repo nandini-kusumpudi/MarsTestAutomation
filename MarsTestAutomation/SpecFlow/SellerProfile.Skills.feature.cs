@@ -77,8 +77,8 @@ namespace MarsTestAutomation.SpecFlow
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add Profile skills with data")]
         [NUnit.Framework.CategoryAttribute("sellerprofiletest")]
-        [NUnit.Framework.TestCaseAttribute("Testing has been added to your skills", null)]
-        public virtual void AddProfileSkillsWithData(string message, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("testing", "Expert", "Testing has been added to your skills", null)]
+        public virtual void AddProfileSkillsWithData(string skillName, string skillLevel, string message, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "sellerprofiletest"};
@@ -88,6 +88,8 @@ namespace MarsTestAutomation.SpecFlow
             }
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("SkillName", skillName);
+            argumentsOfScenario.Add("SkillLevel", skillLevel);
             argumentsOfScenario.Add("Message", message);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Profile skills with data", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 10
@@ -120,7 +122,7 @@ namespace MarsTestAutomation.SpecFlow
         testRunner.And("I click on Add New button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 14
-        testRunner.When("I Enter the data in Skills and Chose Skill level and click on Add button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.When(string.Format("I enter the data in \'{0}\' and \'{1}\'  and click on Add button", skillName, skillLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 15
         testRunner.Then(string.Format("A popup \'{0}\' should be shown", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

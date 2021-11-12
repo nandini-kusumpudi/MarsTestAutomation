@@ -73,23 +73,23 @@ namespace MarsTestAutomation.Pages
             addButton.Click();
         }
 
-        public void enterDataInSkillsFeild(IWebDriver driver)
+        public void AddSkilldata(IWebDriver driver, string skillName, string skillLevel)
         {
-            skillNameField = driver.FindElement(By.XPath(
-                "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/div/div[1]/input"));
-            skillNameField.SendKeys("Testing");
+            skillNameField = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/div/div[1]/input"));
+            skillNameField.SendKeys(skillName);
 
-           skillLevelDropdownField = driver.FindElement(By.XPath(
+            skillLevelDropdownField = driver.FindElement(By.XPath(
                 "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/div/div[2]/select"));
             skillLevelDropdownField.Click();
 
-           skillLevelDropdownOption = driver.FindElement(By.XPath(
-                "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/div/div[2]/select/option[3]"));
-            skillLevelDropdownOption.Click();
+            //create select element object 
+            var selectElement = new SelectElement(skillLevelDropdownField);
 
-            IWebElement clickAddbutton = driver.FindElement(By.XPath(
-                "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/div/span/input[1]"));
-            clickAddbutton.Click();
+            // select by text
+            selectElement.SelectByText(skillLevel);
+
+            IWebElement Addbutton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/div/span/input[1]"));
+            Addbutton.Click();
         }
 
         public String GetSkillsAddPopUpMessage(IWebDriver driver)
@@ -149,18 +149,18 @@ namespace MarsTestAutomation.Pages
             sellerDropdown.Click();
         }
 
-        public void EditSellerProfile(IWebDriver driver)
+        public void EditSellerProfile(IWebDriver driver, string firstName, string lastName)
         {
             Wait.WaitForElementToBeClickable(driver, "CssSelector", "input[name='firstName']", 15);
 
-            IWebElement firstName = driver.FindElement(By.CssSelector("input[name='firstName']"));
-            firstName.Clear();
-            firstName.SendKeys("nandini");
+            IWebElement sellerFirstName = driver.FindElement(By.CssSelector("input[name='firstName']"));
+            sellerFirstName.Clear();
+            sellerFirstName.SendKeys(firstName);
 
-            IWebElement lastName = driver.FindElement(By.XPath(
+            IWebElement sellerLastName = driver.FindElement(By.XPath(
                 "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[2]/div/div/div[2]/div/div[1]/input[2]"));
-            lastName.Clear();
-            lastName.SendKeys("kusumpudi");
+            sellerLastName.Clear();
+            sellerLastName.SendKeys(lastName);
 
             IWebElement savaButton = driver.FindElement(By.XPath(
                 "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[2]/div/div/div[2]/div/div[2]/button"));
