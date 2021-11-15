@@ -16,7 +16,8 @@ The people looking my profile can see what skills i know.
 
     Examples:
      | SkillName | SkillLevel | Message                               |
-     | testing   | Expert     | Testing has been added to your skills |
+     | Testing   | Expert     | Testing has been added to your skills |
+     | Editing   | Beginner   | Editing has been added to your skills |
 
     @sellerprofiletest
     Scenario: Add Profile Skills without data

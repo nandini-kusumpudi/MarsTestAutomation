@@ -10,8 +10,13 @@ The people looking my profile can see what Certification i done.
 	Scenario: Add Profile Certifications with data
 		Given I logged into Trade Skills portal successfully
 		And I click on Certifications and Add New button
-		When I Enter seller Certifications details and click on Add button
-		Then Certifications details should be Added and saved successfully
+		When I Enter seller '<Certification>' , '<CertificationForm>', '<Year>' details and click on Add button
+		Then A popup should be shown with '<Message>' 
+
+		Examples: 
+         | Certification | CertificationForm | Year | Message                                      |
+         | Istqb         | Fundation level   | 2017 | Istqb has been added to your certification   |
+		 | English       | intership level   | 2015 | English has been added to your certification |
 		
 	@sellerprofiletest
 	Scenario: Add Profile Certifications withot data
@@ -46,9 +51,13 @@ The people looking my profile can see what Certification i done.
 	Scenario: Edit Profile Certifications with data
 		Given I logged into Trade Skills portal successfully
 		And I click on Certifications and Update button
-		When I Edited seller Certifications details and click on Update button
-		Then Certifications details should be Edited successfully
+		When I Edited  '<EditCertification>', '<EditCertificationForm>', '<EditYear>'  details and click on Update button
+		Then A popup should be shown with '<Message>' 
 		
+		Examples: 
+         | EditCertification | EditCertificationForm | EditYear | Message                                       |
+         | Testing           | intership level       | 2016     | Testing has been updated to your certification|
+
 	@sellerprofiletest
 	Scenario: Edit Profile Certifications withot any data
 		Given I logged into Trade Skills portal successfully
@@ -67,6 +76,10 @@ The people looking my profile can see what Certification i done.
 	@sellerprofiletest
 	Scenario: Profile Certification delete
 		Given I logged into Trade Skills portal successfully
-		And I selected the Certification
-		When I click on delete icon
-		Then Certification should be Deleted successfully
+		And I selected the Certification tab
+		When I click on certification delete icon
+		Then A popup should be shown with '<Message>' 
+		
+		Examples:
+		| Message                                          |
+		| Testing has been deleted from your certification |

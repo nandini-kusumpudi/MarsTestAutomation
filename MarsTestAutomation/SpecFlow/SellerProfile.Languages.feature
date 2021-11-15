@@ -6,12 +6,18 @@ The people looking my profile can see what language i know.
 
 #	profile language add
 	@sellerprofiletest
-	Scenario: Add Profile Languages with data
+	Scenario Outline: Add Profile Languages with data
 		Given I logged into Trade Skills portal successfully
-		And I click on Add New button
-		When I Enter the data in Language and language level and click on Add button
-		Then Laguages should be Added and saved successfully
+		And  I click on language Add New Button
+		When I Enter the data in '<AddLanguage>' and '<Languagelevel>' and click on Add button
+		Then A popup should be shown with '<Message>' 
 		
+		 Examples: 
+         | AddLanguage  | Languagelevel | Message |
+         | English      | Fluent        | English has been added to your languages |
+		 | Spanish      | Basic         | Spanish has been added to your languages |
+		 | Irish        | Basic         | Irish has been added to your languages |
+
 	@sellerprofiletest
 	Scenario: Add Profile Languages without data
 		Given I logged into Trade Skills portal successfully
@@ -46,9 +52,14 @@ The people looking my profile can see what language i know.
 	@sellerprofiletest
 	Scenario: Edit Profile Languages with data
 		Given I logged into Trade Skills portal successfully
-		And I click on pen icon 
-		When I Edit the data in Language and language level and click on update button
-		Then Laguages should be edited successfully
+		And I click on language pen icon 
+		When I Edited the data in '<EditLanguage>' and '<EditLanguagelevel>'  and click on update button
+		Then A popup should be shown with '<Message>' 
+
+		Examples: 
+         | EditLanguage | EditLanguagelevel | Message                                     |
+         | Hindi        | Basic             | Hindi has been updated to your languages    |
+		
 		
 	Scenario: Edit Profile Languages without data
 		Given I logged into Trade Skills portal successfully
@@ -80,6 +91,10 @@ The people looking my profile can see what language i know.
 	@sellerprofiletest
 	Scenario: Profile Languages delete
 		Given I logged into Trade Skills portal successfully
-		And I selected the skill
-		When I click on delete icon
-		Then Laguages should be Deleted successfully
+		And I click language delet icon
+		Then A popup should be shown with '<Message>' 
+ Examples: 
+         | Message |
+         | Hindi has been deleted from your languages |
+		 
+		
